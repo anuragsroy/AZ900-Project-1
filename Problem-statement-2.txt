@@ -1,0 +1,204 @@
+Creation of storage account
+
+commands:
+
+creation of resource group
+
+az group create --name storage-account-rg --location eastus
+
+output 
+
+{
+  "id": "/subscriptions/fd5c2424-ed35-4363-8d62-0fa92006a682/resourceGroups/storage-account-rg",
+  "location": "eastus",
+  "managedBy": null,
+  "name": "storage-account-rg",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null,
+  "type": "Microsoft.Resources/resourceGroups"
+}
+
+creation of storage account
+
+>az storage account create --name anurag29081992 --resource-group storage-account-rg --location eastus --sku Standard_RAGRS --kind StorageV2 --min-tls-version TLS1_2 --allow-blob-public-access false
+
+Output:
+
+{
+  "accessTier": "Hot",
+  "accountMigrationInProgress": null,
+  "allowBlobPublicAccess": false,
+  "allowCrossTenantReplication": false,
+  "allowSharedKeyAccess": null,
+  "allowedCopyScope": null,
+  "azureFilesIdentityBasedAuthentication": null,
+  "blobRestoreStatus": null,
+  "creationTime": "2025-06-22T14:06:40.857600+00:00",
+  "customDomain": null,
+  "defaultToOAuthAuthentication": null,
+  "dnsEndpointType": null,
+  "enableExtendedGroups": null,
+  "enableHttpsTrafficOnly": true,
+  "enableNfsV3": null,
+  "encryption": {
+    "encryptionIdentity": null,
+    "keySource": "Microsoft.Storage",
+    "keyVaultProperties": null,
+    "requireInfrastructureEncryption": null,
+    "services": {
+      "blob": {
+        "enabled": true,
+        "keyType": "Account",
+        "lastEnabledTime": "2025-06-22T14:06:41.029472+00:00"
+      },
+      "file": {
+        "enabled": true,
+        "keyType": "Account",
+        "lastEnabledTime": "2025-06-22T14:06:41.029472+00:00"
+      },
+      "queue": null,
+      "table": null
+    }
+  },
+  "extendedLocation": null,
+  "failoverInProgress": null,
+  "geoReplicationStats": null,
+  "id": "/subscriptions/fd5c2424-ed35-4363-8d62-0fa92006a682/resourceGroups/storage-account-rg/providers/Microsoft.Storage/storageAccounts/anurag29081992",
+  "identity": null,
+  "immutableStorageWithVersioning": null,
+  "isHnsEnabled": null,
+  "isLocalUserEnabled": null,
+  "isSftpEnabled": null,
+  "isSkuConversionBlocked": null,
+  "keyCreationTime": {
+    "key1": "2025-06-22T14:06:41.029472+00:00",
+    "key2": "2025-06-22T14:06:41.029472+00:00"
+  },
+  "keyPolicy": null,
+  "kind": "StorageV2",
+  "largeFileSharesState": null,
+  "lastGeoFailoverTime": null,
+  "location": "eastus",
+  "minimumTlsVersion": "TLS1_2",
+  "name": "anurag29081992",
+  "networkRuleSet": {
+    "bypass": "AzureServices",
+    "defaultAction": "Allow",
+    "ipRules": [],
+    "ipv6Rules": [],
+    "resourceAccessRules": null,
+    "virtualNetworkRules": []
+  },
+  "primaryEndpoints": {
+    "blob": "https://anurag29081992.blob.core.windows.net/",
+    "dfs": "https://anurag29081992.dfs.core.windows.net/",
+    "file": "https://anurag29081992.file.core.windows.net/",
+    "internetEndpoints": null,
+    "microsoftEndpoints": null,
+    "queue": "https://anurag29081992.queue.core.windows.net/",
+    "table": "https://anurag29081992.table.core.windows.net/",
+    "web": "https://anurag29081992.z13.web.core.windows.net/"
+  },
+  "primaryLocation": "eastus",
+  "privateEndpointConnections": [],
+  "provisioningState": "Succeeded",
+  "publicNetworkAccess": null,
+  "resourceGroup": "storage-account-rg",
+  "routingPreference": null,
+  "sasPolicy": null,
+  "secondaryEndpoints": {
+    "blob": "https://anurag29081992-secondary.blob.core.windows.net/",
+    "dfs": "https://anurag29081992-secondary.dfs.core.windows.net/",
+    "file": null,
+    "internetEndpoints": null,
+    "microsoftEndpoints": null,
+    "queue": "https://anurag29081992-secondary.queue.core.windows.net/",
+    "table": "https://anurag29081992-secondary.table.core.windows.net/",
+    "web": "https://anurag29081992-secondary.z13.web.core.windows.net/"
+  },
+  "secondaryLocation": "westus",
+  "sku": {
+    "name": "Standard_RAGRS",
+    "tier": "Standard"
+  },
+  "statusOfPrimary": "available",
+  "statusOfSecondary": "available",
+  "storageAccountSkuConversionStatus": null,
+  "tags": {},
+  "type": "Microsoft.Storage/storageAccounts"
+}
+
+Creation of blob folder name images and upload 5 images to folder
+
+Creation of container for storage
+
+>az storage container create --account-name anurag29081992 --name storagecontainer --auth-mode login
+
+output
+
+{
+  "condition": null,
+  "conditionVersion": null,
+  "createdBy": null,
+  "createdOn": "2025-06-22T14:38:13.690066+00:00",
+  "delegatedManagedIdentityResourceId": null,
+  "description": null,
+  "id": "/subscriptions/fd5c2424-ed35-4363-8d62-0fa92006a682/resourceGroups/storage-account-rg/providers/Microsoft.Storage/storageAccounts/anurag29081992/providers/Microsoft.Authorization/roleAssignments/e7c1f404-1556-414d-a0fa-acb9dd3f971c",
+  "name": "e7c1f404-1556-414d-a0fa-acb9dd3f971c",
+  "principalId": "df20f811-e407-45a5-a9dd-d9d3d3c3d93f",
+  "principalType": "User",
+  "resourceGroup": "storage-account-rg",
+  "roleDefinitionId": "/subscriptions/fd5c2424-ed35-4363-8d62-0fa92006a682/providers/Microsoft.Authorization/roleDefinitions/ba92f5b4-2d11-453d-a403-e96b0029c9fe",
+  "scope": "/subscriptions/fd5c2424-ed35-4363-8d62-0fa92006a682/resourceGroups/storage-account-rg/providers/Microsoft.Storage/storageAccounts/anurag29081992",
+  "type": "Microsoft.Authorization/roleAssignments",
+  "updatedBy": "df20f811-e407-45a5-a9dd-d9d3d3c3d93f",
+  "updatedOn": "2025-06-22T14:38:14.437079+00:00"
+}
+
+C:\Users\hp>az storage container create --account-name anurag29081992 --name storagecontainer --auth-mode login
+D:\a\_work\1\s\build_scripts\windows\artifacts\cli\Lib\site-packages\azure/multiapi/storagev2/fileshare/__init__.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+{
+  "created": true
+}
+
+Blob upload to container
+
+az storage blob upload --account-name anurag29081992 --container-name storagecontainer --name project_image1.jpg --file project_image1.jpg --auth-mode login
+az storage blob upload --account-name anurag29081992 --container-name storagecontainer --name project_image2.jfif --file project_image2.jfif --auth-mode login
+az storage blob upload --account-name anurag29081992 --container-name storagecontainer --name project_image3.png --file project_image3.png --auth-mode login
+az storage blob upload --account-name anurag29081992 --container-name storagecontainer --name project_image4.jpg --file project_image4.jpg --auth-mode login
+az storage blob upload --account-name anurag29081992 --container-name storagecontainer --name project_image5.jpg --file project_image5.jpg --auth-mode login
+Output:
+
+Finished[#############################################################]  100.0000%
+{
+  "client_request_id": "57b5d2f4-4f7b-11f0-a1df-2cdb078501d7",
+  "content_md5": "O0x82PawssAw61oyIhYZDw==",
+  "date": "2025-06-22T15:12:44+00:00",
+  "encryption_key_sha256": null,
+  "encryption_scope": null,
+  "etag": "\"0x8DDB19F3DD22B29\"",
+  "lastModified": "2025-06-22T15:12:45+00:00",
+  "request_id": "b9dd5a53-f01e-0040-6188-e37190000000",
+  "request_server_encrypted": true,
+  "version": "2022-11-02",
+  "version_id": null
+
+}
+
+Listing the Blobs:
+
+az storage blob list --account-name anurag29081992 --container-name storagecontainer --output table --auth-mode login
+
+Output:
+Name                Blob Type    Blob Tier    Length    Content Type    Last Modified              Snapshot
+------------------  -----------  -----------  --------  --------------  -------------------------  ----------
+project_image1.jpg  BlockBlob    Hot          70964     image/jpeg      2025-06-22T14:55:19+00:00
+project_image2.jpg  BlockBlob    Hot          8755      image/jpeg      2025-06-22T15:04:20+00:00
+project_image3.png  BlockBlob    Hot          514000    image/png       2025-06-22T15:28:13+00:00
+project_image4.jpg  BlockBlob    Hot          201087    image/jpeg      2025-06-22T15:29:05+00:00
+project_image5.jpg  BlockBlob    Hot          333649    image/jpeg      2025-06-22T15:12:45+00:00
+
+ 
